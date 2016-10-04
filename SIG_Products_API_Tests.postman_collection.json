@@ -1,0 +1,538 @@
+{
+	"variables": [],
+	"info": {
+		"name": "SIG Products API Tests",
+		"_postman_id": "b21bc5d0-c17a-21db-2ed4-b4e9e2c85868",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST P10001: 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 201\"] = responseCode.code === 201;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"sku\":\"P10001\", \"name\":\"Product P10001\" }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT P10001: 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 204\"] = responseCode.code === 204;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products/P10001",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"sku\":\"P10001\", \"name\":\"Product P10001\", \"description\":\"Product description for P10001.\" }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get with filter sku=P10001: 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products?sku=P10001",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get P10001: 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products/P10001",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE P10001: 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products/P10001",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get with no filter: 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get P99999: 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 404\"] = responseCode.code === 404;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products/P99999",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT P99999: 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 404\"] = responseCode.code === 404;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products/P99999",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"sku\":\"P99999\", \"name\":\"Product P99999\", \"description\":\"Updated: Product description for P99999.\" }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE P99999: 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 404\"] = responseCode.code === 404;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products/P99999",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST P99999 with empty sku: 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 400\"] = responseCode.code === 400;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"sku\":\" \", \"name\":\"Product P99999\", \"description\":\"Product description for P99999.\" }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST P99999 with missing sku: 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 400\"] = responseCode.code === 400;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"name\":\"Product P99999\", \"description\":\"Product description for P99999.\" }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST P99999 with empty name: 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 400\"] = responseCode.code === 400;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"sku\":\"P99999\", \"name\":\" \" }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST P99999 with missing name: 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 400\"] = responseCode.code === 400;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"sku\":\"P99999\" }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST P99999: 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 201\"] = responseCode.code === 201;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"sku\":\"P99999\", \"name\":\"Product P99999\" }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT P99999 with empty sku: 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 400\"] = responseCode.code === 400;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products/P99999",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"sku\":\" \", \"name\":\"Product P99999\", \"description\":\"Product description for P99999.\" }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT P99999 with missing sku: 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 400\"] = responseCode.code === 400;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products/P99999",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"name\":\"Product P99999\", \"description\":\"Product description for P99999.\" }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT P99999 with empty name: 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 400\"] = responseCode.code === 400;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products/P99999",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"sku\":\"P99999\", \"name\":\" \" }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT P99999 with missing name: 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 400\"] = responseCode.code === 400;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products/P99999",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"sku\":\"P99999\" }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE P99999: 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/products/P99999",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
